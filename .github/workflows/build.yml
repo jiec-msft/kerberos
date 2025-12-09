@@ -22,8 +22,9 @@ jobs:
             arch: ''
           - os: windows-2022
             arch: arm64
+            runs_on: windows-11-arm
       fail-fast: false
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.runs_on || matrix.os }}
     steps:
       - uses: actions/checkout@v5
 
