@@ -103,7 +103,14 @@ async function buildBindings(args, pkg) {
     await fs.copyFile(resolveRoot('prebuilds', armTar), resolveRoot('prebuilds', x64Tar));
   }
 
-  await run('node', ['--print', `require('.')`], { cwd: resolveRoot() })
+  // Skip verification when cross-compiling (e.g., building ARM64 on x64)
+  // Cross-compiled binaries cannot be loaded by the host architecture's Node.js
+  const isCrossCompiling = args.arch && args.arch !== process.arch;
+  if (!isCrossCompiling) {
+    await run('node', ['--print', `require('.')`], { cwd: resolveRoot() });
+  } else {
+    console.log(`Skipping verification for cross-compiled build (target: ${args.arch}, host: ${process.arch})`);
+  }
 }
 
 async function main() {
