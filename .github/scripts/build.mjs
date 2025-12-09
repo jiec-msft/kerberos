@@ -10,6 +10,17 @@ import url from 'node:url';
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
+/**
+ * Normalize architecture names to match Node.js conventions
+ * @param {string} arch - Architecture name (e.g., 'amd64', 'x64', 'arm64')
+ * @returns {string} Normalized architecture name
+ */
+function normalizeArch(arch) {
+  // Node.js uses 'x64' while many tools use 'amd64'
+  if (arch === 'amd64') return 'x64';
+  return arch;
+}
+
 /** Resolves to the root of this repository */
 function resolveRoot(...paths) {
   return path.resolve(__dirname, '..', '..', ...paths);
@@ -105,7 +116,7 @@ async function buildBindings(args, pkg) {
 
   // Skip verification when cross-compiling (e.g., building ARM64 on x64)
   // Cross-compiled binaries cannot be loaded by the host architecture's Node.js
-  const isCrossCompiling = args.arch && args.arch !== process.arch;
+  const isCrossCompiling = args.arch && normalizeArch(args.arch) !== normalizeArch(process.arch);
   if (!isCrossCompiling) {
     await run('node', ['--print', `require('.')`], { cwd: resolveRoot() });
   } else {
