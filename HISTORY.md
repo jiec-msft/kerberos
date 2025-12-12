@@ -2,6 +2,106 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/jiec-msft/kerberos/compare/v7.0.0...v7.0.0) (2025-12-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* **NODE-7213:** upgrade macos deployment target to 11 ([#277](https://github.com/jiec-msft/kerberos/issues/277))
+* **NODE-7166:** increase napi version to 9 ([#275](https://github.com/jiec-msft/kerberos/issues/275))
+* **NODE-7159:** remove Kerberos export ([#271](https://github.com/jiec-msft/kerberos/issues/271))
+* **NODE-6416:** drop callback support from public API ([#269](https://github.com/jiec-msft/kerberos/issues/269))
+* **NODE-7155:** update minimum supported Node version to 20.19.0 ([#268](https://github.com/jiec-msft/kerberos/issues/268))
+* **NODE-3848:** update dependencies ([#142](https://github.com/jiec-msft/kerberos/issues/142))
+* **NODE-3472:** convert to Node-API ([#137](https://github.com/jiec-msft/kerberos/issues/137))
+
+### Features
+
+* **async-worker:** introduce a `KerberosWorker` using lambdas ([1239ef7](https://github.com/jiec-msft/kerberos/commit/1239ef750581a00fd089f6c8ae3074ccb33f1e65))
+* **checkPassword:** add implementation for checking krb5 passwords ([60f476e](https://github.com/jiec-msft/kerberos/commit/60f476e80d0c0c95c51b771e59ca1af4fba19a8b))
+* **clean:** provide implementations for the clean methods ([77a77ce](https://github.com/jiec-msft/kerberos/commit/77a77ce10928a080e9a92628d71b135fa8174c0e))
+* **client:** add final wrap/unwrap api endpoints ([016222f](https://github.com/jiec-msft/kerberos/commit/016222f466de5e2454b8affdb3f6d9b08d588bde))
+* **client:** add implementation for client wrap/unwrap to win32 ([994604c](https://github.com/jiec-msft/kerberos/commit/994604cf3432deed883fc0859cbdd986aea655dd))
+* **gss:** add `new` methods for constructing state tracking types ([274cad6](https://github.com/jiec-msft/kerberos/commit/274cad676649e98155edd398a8f40ffccc40b64d))
+* **jsdoc2md:** add jsdoc2md support, and README template ([60e1ee5](https://github.com/jiec-msft/kerberos/commit/60e1ee5adab74563e4b289dc07e043d91a646306))
+* **kerberos:** add getters to check for context completeness ([6a9a01d](https://github.com/jiec-msft/kerberos/commit/6a9a01dde33bfb327fa3b46f432b32729e20c04a))
+* **kerberos:** implement client/server init, move to worker file ([1c857ea](https://github.com/jiec-msft/kerberos/commit/1c857eae0ae72f75ec952b34bb8b0e3740767388))
+* **kerberos:** return value for `step` is the challenge response ([e153d24](https://github.com/jiec-msft/kerberos/commit/e153d240ff1a47dac2e39499d487bc1e4e6b11bf))
+* **NODE-3472:** convert to Node-API ([#137](https://github.com/jiec-msft/kerberos/issues/137)) ([f9481a4](https://github.com/jiec-msft/kerberos/commit/f9481a42877c604f8aac961536fc5674ce8baa6c))
+* **NODE-5505:** add compiler warnings and cast lengths ([#158](https://github.com/jiec-msft/kerberos/issues/158)) ([1e73b98](https://github.com/jiec-msft/kerberos/commit/1e73b98340d244e7c409afa6d293be43ed89080b))
+* **NODE-5746:** allow runtime linking against system kerberos library ([#165](https://github.com/jiec-msft/kerberos/issues/165)) ([ce2feb3](https://github.com/jiec-msft/kerberos/commit/ce2feb3fa100b8bb3fdff502f6444ab331619108))
+* **NODE-6333:** Allow callers to specify the 'protect' flag ([#198](https://github.com/jiec-msft/kerberos/issues/198)) ([515f4bf](https://github.com/jiec-msft/kerberos/commit/515f4bfa9ed2f98be2670143d34b2e1356eb7089))
+* **NODE-6416:** drop callback support from public API ([#269](https://github.com/jiec-msft/kerberos/issues/269)) ([3a5a37f](https://github.com/jiec-msft/kerberos/commit/3a5a37f381c5b268c4eeb6fff32b4742d44ec710))
+* **NODE-6993:** Add support for FreeBSD ([#248](https://github.com/jiec-msft/kerberos/issues/248)) ([d3e1a71](https://github.com/jiec-msft/kerberos/commit/d3e1a717b5cbb8de01b44d2c083d8f6db317e738))
+* **NODE-7051:** Normalize casing of shlwapi.lib ([#253](https://github.com/jiec-msft/kerberos/issues/253)) ([1a91b69](https://github.com/jiec-msft/kerberos/commit/1a91b6926fdb616ecb7875f73d40216eaa8ee565))
+* **NODE-7152:** deprecate MongoAuthProcess class ([#267](https://github.com/jiec-msft/kerberos/issues/267)) ([6b022d3](https://github.com/jiec-msft/kerberos/commit/6b022d326c59c1056444603a21df8b5f44e8a800))
+* **NODE-7155:** update minimum supported Node version to 20.19.0 ([#268](https://github.com/jiec-msft/kerberos/issues/268)) ([286624d](https://github.com/jiec-msft/kerberos/commit/286624dce90fd32cb293aa68189cd55cfdde5778))
+* **NODE-7159:** remove Kerberos export ([#271](https://github.com/jiec-msft/kerberos/issues/271)) ([7170783](https://github.com/jiec-msft/kerberos/commit/7170783f0b09ff53bb2a4f4faee8306ccf06ca77))
+* **NODE-7164:** add TS definition file to kerberos package ([#274](https://github.com/jiec-msft/kerberos/issues/274)) ([8764240](https://github.com/jiec-msft/kerberos/commit/876424069c6d743eb9de1c8f6be274986291dc76))
+* **NODE-7166:** increase napi version to 9 ([#275](https://github.com/jiec-msft/kerberos/issues/275)) ([cd75e37](https://github.com/jiec-msft/kerberos/commit/cd75e37da1c731eb4c05f38417eaa27c546bd75d))
+* **NODE-7213:** upgrade macos deployment target to 11 ([#277](https://github.com/jiec-msft/kerberos/issues/277)) ([2faa561](https://github.com/jiec-msft/kerberos/commit/2faa56119797421b37d8ac03e40a651da26aefb8))
+* **package:** export the package version ([5be618f](https://github.com/jiec-msft/kerberos/commit/5be618fbadac269ae0e8cd4ef4fcc78f98ada151))
+* **promises:** allow to access all API by promise or callback ([3b77430](https://github.com/jiec-msft/kerberos/commit/3b774306779a6c84f9d6ccf5da7a46d96ccec58e))
+* **serverPrincipalDetails:** add server pricipal details method ([385fcd1](https://github.com/jiec-msft/kerberos/commit/385fcd1f55c86d75bb9f27f0d1c9840c7b2de6df))
+* **src:** begin to develop the new version of the module in `src` ([f45da50](https://github.com/jiec-msft/kerberos/commit/f45da50ae4c745ff223eee5b517a9a5e10f5b125))
+* **sspi:** introduce client initialization for SSPI ([6a40301](https://github.com/jiec-msft/kerberos/commit/6a403014ec4b83e9730e17527a222b483a3c648e))
+* **sspi:** provide implementation for `initializeClient` ([5943f1c](https://github.com/jiec-msft/kerberos/commit/5943f1c368c8dd3f3bd1fc096e784684304e3089))
+* **step:** implement client and server step methods ([5a4327c](https://github.com/jiec-msft/kerberos/commit/5a4327c17a98a4b4c07866868ba5fd3c02674336))
+
+
+### Bug Fixes
+
+* add support for node 12 ([ae6755d](https://github.com/jiec-msft/kerberos/commit/ae6755db6b1ab7256afd7c33f2051fcb74ea1060))
+* **auth-process:** only send username/password if provided ([334ca9c](https://github.com/jiec-msft/kerberos/commit/334ca9c6d4ae32f8bbd76efc5981dc7b37be2ce6))
+* **auth-process:** use canonicalized hostname in client init ([b1802d1](https://github.com/jiec-msft/kerberos/commit/b1802d143b0de3a8f535a1c9c57de14285fe3ae6))
+* **build:** make addon buildable as static library ([#119](https://github.com/jiec-msft/kerberos/issues/119)) ([786e7d8](https://github.com/jiec-msft/kerberos/commit/786e7d83672ad5ff2718c9a440dbd180f8e7b24a))
+* **check-password:** correctly validate parameters, fix test ([b772dde](https://github.com/jiec-msft/kerberos/commit/b772dded06234aca89a9554ecb1c7967725da109))
+* **common:** ensure nan is being included everywhere appropriately ([7bddb24](https://github.com/jiec-msft/kerberos/commit/7bddb2406e51e58566a7127135496c2097f02788))
+* **context:** add `NewInstance` methods, and make getters safer ([fd4b852](https://github.com/jiec-msft/kerberos/commit/fd4b85227c20ab301b5cb6f1266748c6ed75d9d1))
+* **define-operation:** ensure optional parameters are considered ([cee7b83](https://github.com/jiec-msft/kerberos/commit/cee7b830f2aafc27a9ca1242d49ec89ba4b86003))
+* **gss:** fix issue with memory corruption ([ff4167e](https://github.com/jiec-msft/kerberos/commit/ff4167e115831b96a27b50dc2dc6bbb14c0d0b49))
+* **kerberos:** provide default gss flags ([b365934](https://github.com/jiec-msft/kerberos/commit/b365934676b802fb0b1ce0b7017be87640c1066e))
+* **legacy:** support legacy import expectations ([615b23f](https://github.com/jiec-msft/kerberos/commit/615b23f0365313e819529fab6f647791e740b42b))
+* **MONGOSH-1808:** only build universal macos binaries when creating loadable_library ([#186](https://github.com/jiec-msft/kerberos/issues/186)) ([ec3ab7a](https://github.com/jiec-msft/kerberos/commit/ec3ab7a34ea2de587c4a19cb8aad760e793564fc))
+* **NODE-2129:** fix sporadic AcquireCredentialsHandle error ([#133](https://github.com/jiec-msft/kerberos/issues/133)) ([adf8346](https://github.com/jiec-msft/kerberos/commit/adf834665d7b927778669c1197d53d6f4ed6e797))
+* **NODE-3350:** do not export Init function symbol ([#130](https://github.com/jiec-msft/kerberos/issues/130)) ([acdd746](https://github.com/jiec-msft/kerberos/commit/acdd7466c131494e9a2ca36eb9ad64ecda2d1366))
+* **NODE-3982:** only pass username to SSPI if password is set ([#141](https://github.com/jiec-msft/kerberos/issues/141)) ([2d307a3](https://github.com/jiec-msft/kerberos/commit/2d307a3131e546d046b865e6c1d0a256f7612e0d))
+* **NODE-4297:** bump prebuild install to 7.1.1 ([#145](https://github.com/jiec-msft/kerberos/issues/145)) ([142842f](https://github.com/jiec-msft/kerberos/commit/142842fae048e873caac5c83fda43c6b5b45280e))
+* **NODE-5600:** use ubuntu 18 to build and publish ([#162](https://github.com/jiec-msft/kerberos/issues/162)) ([c02db0e](https://github.com/jiec-msft/kerberos/commit/c02db0e1f1a9618bb705782771535feb162d1923))
+* **NODE-6108:** allow building from source on latest Node.js 20.x ([#172](https://github.com/jiec-msft/kerberos/issues/172)) ([c1f7aca](https://github.com/jiec-msft/kerberos/commit/c1f7acafb211d1b449086433578495d4ae0b869f))
+* **NODE-6253:** use runtime linking against system kerberos libraries by default ([#188](https://github.com/jiec-msft/kerberos/issues/188)) ([04044d2](https://github.com/jiec-msft/kerberos/commit/04044d2814ad1d01e77f1ce87f26b03d86692cf2))
+* **NODE-6265:** add Spectre Mitigation and CFG ([#190](https://github.com/jiec-msft/kerberos/issues/190)) ([54b9799](https://github.com/jiec-msft/kerberos/commit/54b97991deaaa04e87e4f3704b0dfcdcdd098a4b))
+* **NODE-6320:** macos runtime linking name conflict with SSL ([#193](https://github.com/jiec-msft/kerberos/issues/193)) ([d382b56](https://github.com/jiec-msft/kerberos/commit/d382b56f2e55dab25a003c416925ba2967761a72))
+* **NODE-6592:** remove dependency on `bindings` ([#220](https://github.com/jiec-msft/kerberos/issues/220)) ([b07a5d2](https://github.com/jiec-msft/kerberos/commit/b07a5d21a219a06303d7be9ad9577d2ffe3aa7c4))
+* **NODE-6732:** test and fix webpack bundling  ([#230](https://github.com/jiec-msft/kerberos/issues/230)) ([81bf1a7](https://github.com/jiec-msft/kerberos/commit/81bf1a7a091016769abbf23d4828d28483380bc7))
+* **NODE-7064:** bump prebuild-install ([#254](https://github.com/jiec-msft/kerberos/issues/254)) ([d2a887a](https://github.com/jiec-msft/kerberos/commit/d2a887a23eb490b31d6932b5d3d90c2f7529a098))
+* **NODE-7226:** build glibc prebuilds on platforms with libc 2.28 ([#281](https://github.com/jiec-msft/kerberos/issues/281)) ([c215be2](https://github.com/jiec-msft/kerberos/commit/c215be2b71afa83de5b076fc57e2e8d301ec5a45))
+* release versioning ([#184](https://github.com/jiec-msft/kerberos/issues/184)) ([a39dfcb](https://github.com/jiec-msft/kerberos/commit/a39dfcb35819ea83642505788e75d91e7f527ca3))
+* **response:** ensure null or client/server response is returned ([083518f](https://github.com/jiec-msft/kerberos/commit/083518f96bfcddad15dffc123e79d89f6ec07554))
+* **server:** use the correct internal method name for server init ([8c8dd35](https://github.com/jiec-msft/kerberos/commit/8c8dd3522ac682f0e0a8e618c66378b1a5bd9fb1))
+* **sspi:** correct invalid null checks for user data ([163bdb9](https://github.com/jiec-msft/kerberos/commit/163bdb92e392755eb87286881fbb282420207f26))
+* **sspi:** only add password and domain if they are provided ([bc48814](https://github.com/jiec-msft/kerberos/commit/bc488146d9e24501c643a9c8a57f6bfe04f3a373))
+* temporarily roll back node-abi until lgeiger/node-abi/[#90](https://github.com/jiec-msft/kerberos/issues/90) is resolved ([880ae2e](https://github.com/jiec-msft/kerberos/commit/880ae2eee6a8fe565ab627717d1d81ae85896abf))
+* **this:** use the correct reference to `this` for object unwrapping ([1acfb20](https://github.com/jiec-msft/kerberos/commit/1acfb20dd7aa5bb771a0dfbdeac2223afacf2164))
+* **unique_ptr:** ensure we include &lt;memory&gt; where required ([e3d9afb](https://github.com/jiec-msft/kerberos/commit/e3d9afb3730bcd6d8161c5486a03180d9fa6eda1))
+* **validation:** identify invalid types for non terminal optionals ([a5b98b6](https://github.com/jiec-msft/kerberos/commit/a5b98b61726e7a0dbc0609ef06d79d6445973683))
+* **warnings:** set clang compiler pragmas only when clang is detected ([048479d](https://github.com/jiec-msft/kerberos/commit/048479d8c0bbd3f9ef63dbcdfac6e9ff02147b3b))
+* **win32:** `windows` -&gt; `win32` in bindings.gyp ([0221c06](https://github.com/jiec-msft/kerberos/commit/0221c065c000e1457f28c8b868fb207582a807cb))
+* **win32:** cleanup client state in addon destructor ([5394561](https://github.com/jiec-msft/kerberos/commit/53945614d556f5af42e8483af03127602f98eb19))
+* **win32:** initialize with a domain, if one is provided ([309ba61](https://github.com/jiec-msft/kerberos/commit/309ba6178e7b667a99ec50186bd8424101f54d40))
+
+
+### Documentation
+
+* **NODE-7272:** update compat tables for v7 ([#290](https://github.com/jiec-msft/kerberos/issues/290)) ([a22c5ae](https://github.com/jiec-msft/kerberos/commit/a22c5ae99fdfb47886d631562f4fa17a4ca1ea03))
+
+
+### Miscellaneous Chores
+
+* fix release please version ([#224](https://github.com/jiec-msft/kerberos/issues/224)) ([94668a2](https://github.com/jiec-msft/kerberos/commit/94668a2100e098c03eaf6c4ad09d90ecb0cff4a9))
+* **main:** release 2.1.1 [skip-ci] ([#187](https://github.com/jiec-msft/kerberos/issues/187)) ([c2acb18](https://github.com/jiec-msft/kerberos/commit/c2acb189837296303b4cfe84de9c55475edf96d8))
+* **NODE-3848:** update dependencies ([#142](https://github.com/jiec-msft/kerberos/issues/142)) ([8c06728](https://github.com/jiec-msft/kerberos/commit/8c067286add33a2b56aeaf10e41f0409c5fe1d5b))
+
 ## [7.0.0](https://github.com/mongodb-js/kerberos/compare/v3.0.0-alpha...v7.0.0) (2025-11-04)
 
 
